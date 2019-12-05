@@ -32,6 +32,23 @@ gg_service_arn=$(aws iam get-role --role-name Greengrass_ServiceRole --query Rol
 aws greengrass associate-service-role-to-account —role-arn ${gg_service_arn//\"/}
 
 
+{   
+    name: 'Drill.DrillState',
+    nodeId: 'ns=5;s=MAIN.Drill.DrillState',
+},
+{   
+    name: 'Drill.Pressure',
+    nodeId: 'ns=5;s=MAIN.Drill.Pressure',
+},
+{   
+    name: 'Drill.SpindleSpeed',
+    nodeId: 'ns=5;s=MAIN.Drill.SpindleSpeed',
+},
+{   
+    name: 'Drill.MotorSpeed',
+    nodeId: 'ns=5;s=MAIN.Drill.MotorSpeed',
+}
+
 
 
 # Manufacturing Reference Architecture
