@@ -28,6 +28,7 @@ sudo /greengrass/ggc/core/greengrassd start
 Note: If the deploy fails run the following commands  in the terminal window.
 
 gg_service_arn=$(aws iam get-role --role-name Greengrass_ServiceRole --query Role.Arn)
+
 aws greengrass associate-service-role-to-account —role-arn ${gg_service_arn//\"/}
 
 
