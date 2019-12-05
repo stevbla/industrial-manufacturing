@@ -12,6 +12,26 @@ sudo tar -xzvf ~/environment/my-greengrass/greengrass-linux-x86-*.tar.gz -C /
 
 sudo tar -xzvf ~/environment/my-greengrass/*-setup.tar.gz -C /greengrass
 
+* Using yum install Java 8.
+
+sudo yum install java-1.8.0-openjdk
+
+* Switch /usr/bin/java to link to the java8 version.
+
+sudo ln -sf /usr/bin/java8 /usr/bin/java
+
+* Start Greengrass with the following command
+
+sudo /greengrass/ggc/core/greengrassd start
+
+
+Note: If the deploy fails run the following commands  in the terminal window.
+
+gg_service_arn=$(aws iam get-role --role-name Greengrass_ServiceRole --query Role.Arn)
+aws greengrass associate-service-role-to-account —role-arn ${gg_service_arn//\"/}
+
+
+
 
 # Manufacturing Reference Architecture
 
